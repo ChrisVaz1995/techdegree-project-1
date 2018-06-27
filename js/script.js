@@ -43,31 +43,34 @@ var quotes = [
 
 var randomQuote = ' ';
 var message;
+var quotes;
 
 
 function getRandomQuote() {
 
     var randomNumber = Math.floor(Math.random() * quotes.length );
+    var randomQuote = quotes[randomNumber];
     return randomQuote;
-
 }
+console.log(getRandomQuote());
 
 // call the getRandomQuote here and call the items in the array to put it in a message down below. .
 
-function printQuote() {
+function printQuote(conditonal) {
     var currentQuote = getRandomQuote();
     var message = "<p class='quote'>" + currentQuote.quote + "</p>";
     message += "<p class='quote'>" + currentQuote.source + "</p>" + "<p class='source'>" + '.';
     message += "<span class='citation'>" + currentQuote.citation + "</span>"
-    message += "<span class'year'>" + currentQuote.year + "</span>"
-}
+    message += "<span class='year'>" + currentQuote.year + "</span>"
+    document.getElementById("quote-box").innerHTML = message;
 
     if (currentQuote.year !== undefined) {
         message += "<span class='year'>" + currentQuote.year + "</span>";
-    } else {
-        message.getElementById('year');
-    }
+          } else {
+              message.getElementById('year');
+          }
 
-document.getElementById("quote-box").innerHTML = message; {
 }
+
+
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
